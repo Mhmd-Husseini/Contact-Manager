@@ -6,8 +6,7 @@ use App\Models\Contact;
 
 class ContactController extends Controller{
     
-    public function add(Request $request)
-    {
+    public function add(Request $request){
         $request->validate([
             'first_name' => 'required',
             'last_name' => 'required',
@@ -17,4 +16,15 @@ class ContactController extends Controller{
         $contact = Contact::create($request->all());
         return response()->json($contact, 201);
     }
+
+    public function get($id = null){
+        if ($id === null) {
+            $contacts = Contact::all();
+            return response()->json($contacts, 200);
+        } else {
+            $contact = Contact::findOrFail($id);
+            return response()->json($contact, 200);
+        }
+    }
+
 }
