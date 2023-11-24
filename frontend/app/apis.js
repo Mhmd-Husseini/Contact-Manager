@@ -22,3 +22,20 @@ export function getContacts() {
         throw new Error('Failed to add contact');
       });
   }
+
+  export function deleteContact(id){
+    return axios.delete(`${baseUrl}contacts/${id}`)
+      .then((response) => {
+        if (response.status === 204) {
+          return true;
+        } else {
+          return false;
+        }
+      })
+      .catch((error) => {
+        console.error('Error deleting contact:', error);
+        return false;
+      });
+  };
+  
+  
