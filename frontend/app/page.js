@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import AddContact from './components/AddContact';
 import ContactsTable from './components/ContactsTable';
+import Nav from './components/Nav';
 import { getContacts } from './apis';
 
 const Page = () => {
@@ -18,10 +19,13 @@ const Page = () => {
   useEffect(() => {fetchData();}, []);
 
   return (
-    <main>
-      <AddContact />
-      <ContactsTable contacts={contacts} />
-    </main>
+    <div>
+      <Nav/>
+      <main>
+        <AddContact />
+        <ContactsTable contacts={contacts} />
+      </main>
+    </div>
   );
 };
 
