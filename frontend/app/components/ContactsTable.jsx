@@ -6,7 +6,7 @@ const ContactsTable = ({ contacts }) => {
     <div className="overflow-x-auto">
       <table className="table table-zebra">
         <thead className="text-lg">
-          <tr>
+          <tr className='bg-cyan-800 text-cyan-50'>
             <th></th>
             <th>Name</th>
             <th>Phone</th>
