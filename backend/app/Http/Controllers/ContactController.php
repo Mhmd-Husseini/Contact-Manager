@@ -12,7 +12,7 @@ class ContactController extends Controller{
             'first_name' => 'required',
             'last_name' => 'required',
             'email' => 'required|email|unique:contacts',
-            'phone_number' => 'required|regex:/^\+[0-9]{1,3}[0-9]{4,14}$/',
+            'phone_number' => 'required|unique:contacts|regex:/^\+[0-9]{1,3}[0-9]{4,14}$/',
         ]);
     
         if ($validator->fails()) {
