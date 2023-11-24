@@ -10,4 +10,15 @@ export function getContacts() {
       });
   }
   
-  
+  export function addContact(formData) {
+    return axios.post(`${baseUrl}add`, formData, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then(response => response.data)
+      .catch(error => {
+        console.error('Error adding contact:', error);
+        throw new Error('Failed to add contact');
+      });
+  }
