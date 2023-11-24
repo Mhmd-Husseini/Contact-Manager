@@ -1,7 +1,7 @@
 import { FaEdit, FaTrash } from 'react-icons/fa';
 import {deleteContact} from './../apis';
 
-const Contact = ({ contact, index }) => {
+const Contact = ({ contact, index, onDeleteContact }) => {
   const { id, first_name, last_name, email, phone_number } = contact;
 
   const handleDelete = async () => {
@@ -9,6 +9,7 @@ const Contact = ({ contact, index }) => {
     if (isConfirmed) {
       const deleted = await deleteContact(id);
       if (deleted) {
+        onDeleteContact(id); 
         alert('Contact deleted successfully!');
       } else {
         console.error('Failed to delete contact.');
