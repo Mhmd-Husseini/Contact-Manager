@@ -17,7 +17,6 @@ const Contact = ({ contact, index, onDeleteContact }) => {
         const deleted = await deleteContact(id);
         if (deleted) {
           onDeleteContact(id);
-          alert('Contact deleted successfully!');
         } else {
           console.error('Failed to delete contact.');
         }
@@ -35,7 +34,8 @@ const Contact = ({ contact, index, onDeleteContact }) => {
     try {
       await updateContact(updatedContactData, id);
       setModalOpen(false);
-      window.location.reload();    } catch (error) {
+      window.location.reload();    
+    } catch (error) {
       console.error('Failed to update contact:', error);
       alert('Failed to update contact. Please check your data.');
     }

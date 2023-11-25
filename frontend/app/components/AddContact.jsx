@@ -18,7 +18,7 @@ const AddContact = () => {
       window.location.reload();
     } catch (error) {
       console.error('Error adding contact');
-      setErrors({ ...errors, email: 'Phone or email already registered.', phone_number: 'Phone or email already registered.' });
+      setErrors({ email: 'Phone or email already registered.', phone_number: 'Phone or email already registered.' });
     }
   };
 
