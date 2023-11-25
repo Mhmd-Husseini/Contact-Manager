@@ -7,7 +7,7 @@ import { addContact } from './../apis';
 const AddContact = () => {
   const initialFormData = { first_name: '', last_name: '', email: '', phone_number: '' };
   const [modalOpen, setModalOpen] = useState(false);
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState({}); 
 
   const handleAddContact = async (formData) => {
     try {
@@ -15,6 +15,7 @@ const AddContact = () => {
       console.log('Contact added:', data);
       setErrors({});
       setModalOpen(false);
+      window.location.reload();
     } catch (error) {
       console.error('Error adding contact');
       setErrors({ ...errors, email: 'Phone or email already registered.', phone_number: 'Phone or email already registered.' });
@@ -27,7 +28,7 @@ const AddContact = () => {
         <p className='text-lg'>Add Contact</p> <AiOutlinePlus size={16} />
       </button>
       <Modal modalOpen={modalOpen} setModalOpen={setModalOpen}>
-        <ContactForm initialData={initialFormData} handleSubmit={handleAddContact} errors={errors} setErrors={setErrors} />
+        <ContactForm initialData={initialFormData} handleSubmit={handleAddContact} errors={errors} setErrors={setErrors} buttonName={"Add Contact"}/>
       </Modal>
     </div>
   );

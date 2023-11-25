@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const ContactForm = ({ initialData, handleSubmit, errors, setErrors }) => {
+const ContactForm = ({ initialData, handleSubmit, errors, setErrors, buttonName }) => {
     const [formData, setFormData] = useState(initialData);
   
     const handleInputChange = (e) => {
@@ -56,7 +56,7 @@ const ContactForm = ({ initialData, handleSubmit, errors, setErrors }) => {
             {errors.phone_number && <p className='text-red-500 text-[13px]'>{errors.phone_number}</p>}
         </div>
         <button type='submit'className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'>
-            Add Contact
+            {buttonName}
         </button>
     </form>
   );
