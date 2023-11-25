@@ -22,7 +22,7 @@ const Page = () => {
     <div>
       <Nav/>
       <main>
-        <AddContact />
+        <AddContact/>
         <ContactsTable contacts={contacts} />
       </main>
     </div>

@@ -14,7 +14,7 @@ export function getContacts() {
     return axios.post(`${baseUrl}add`, formData, {
       headers: {
         'Content-Type': 'application/json',
-      },
+      }, 
     })
       .then(response => response.data)
       .catch(error => {
@@ -38,4 +38,12 @@ export function getContacts() {
       });
   };
   
+  export function updateContact(formData, id) {
+    return axios.put(`${baseUrl}contacts/${id}`, formData)
+      .then(response => response.data)
+      .catch(error => {
+        console.error('Error updating contact:', error);
+        throw new Error('Failed to update contact');
+      });
+  }
   
